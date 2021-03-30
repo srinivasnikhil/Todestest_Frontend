@@ -6,6 +6,7 @@
 <h3>Add</h3>
 <form action="javascript:void(0);" method="POST" onsubmit="addItem()">
     <input type="text" id="add-name" placeholder="New to-do">
+    <input type="text" id="Description"/>
     <input type="submit" value="Add">
 </form>
 
@@ -15,6 +16,7 @@
         <input type="hidden" id="edit-id">
         <input type="checkbox" id="edit-isComplete">
         <input type="text" id="edit-name">
+        <input type="text" id="edit-escription" />
         <input type="submit" value="Save">
         <a onclick="closeInput()" aria-label="Close">&#10006;</a>
     </form>

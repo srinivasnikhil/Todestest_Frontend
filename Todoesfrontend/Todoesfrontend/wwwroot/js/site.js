@@ -14,10 +14,12 @@ function getItems() {
 
 function addItem() {
     const addNameTextbox = document.getElementById('add-name');
+    const addDescriptionTextbox = document.getElementById('Description');
 
     const item = {
         isComplete: false,
-        name: addNameTextbox.value.trim()
+        name: addNameTextbox.value.trim(),
+        Description: addDescriptionTextbox.value.trim()
     };
 
     fetch(uri, {
@@ -32,6 +34,7 @@ function addItem() {
         .then(() => {
             getItems();
             addNameTextbox.value = '';
+            Description.value = '';
         })
         .catch(error => console.error('Unable to add item.', error));
 }
@@ -48,6 +51,7 @@ function displayEditForm(id) {
     const item = todos.find(item => item.id === id);
 
     document.getElementById('edit-name').value = item.name;
+    document.getElementById('edit-escription').value = item.Description;
     document.getElementById('edit-id').value = item.id;
     document.getElementById('edit-isComplete').checked = item.isComplete;
     document.getElementById('editForm').style.display = 'block';
