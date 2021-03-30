@@ -5,7 +5,6 @@
 <h1>To-do CRUD</h1>
 <h3>Add</h3>
 <form action="javascript:void(0);" method="POST" onsubmit="addItem()">
-    <input type="text" id="add-name" placeholder="New to-do">
     <input type="text" id="Description"/>
     <input type="submit" value="Add">
 </form>
@@ -15,8 +14,7 @@
     <form action="javascript:void(0);" onsubmit="updateItem()">
         <input type="hidden" id="edit-id">
         <input type="checkbox" id="edit-isComplete">
-        <input type="text" id="edit-name">
-        <input type="text" id="edit-escription" />
+        <input type="text" id="edit-description" />
         <input type="submit" value="Save">
         <a onclick="closeInput()" aria-label="Close">&#10006;</a>
     </form>
@@ -27,8 +25,7 @@
 <table>
     <tr>
         <th>Is Complete?</th>
-        <th>Name</th>
-        <th></th>
+        <th>Description</th>
         <th></th>
     </tr>
     <tbody id="todos"></tbody>
