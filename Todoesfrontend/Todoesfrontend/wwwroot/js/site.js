@@ -115,7 +115,7 @@ function _displayItems(data) {
         td1.appendChild(isCompleteCheckbox);
 
         let td2 = tr.insertCell(1);
-        let textNode = document.createTextNode(item.Description);
+        let textNode = document.createTextNode(item.addDescriptionTextbox);
         td2.appendChild(textNode);
 
         let td3 = tr.insertCell(2);
