@@ -14,10 +14,11 @@ function getItems() {
 
 function addItem() {
     const addDescriptionTextbox = document.getElementById('Description');
+    const checkbox = document.getElementById('edit-isComplete');
 
     const item = {
-        isComplete: false,
-        Description: addDescriptionTextbox.value.trim()
+        isComplete: checkbox.value,
+        description: addDescriptionTextbox.value.trim()
     };
 
     fetch(uri, {
@@ -31,7 +32,8 @@ function addItem() {
         .then(response => response.json())
         .then(() => {
             getItems();
-            Description.value = '';
+            isComplete.value;
+            description.value = '';
         })
         .catch(error => console.error('Unable to add item.', error));
 }
@@ -47,7 +49,7 @@ function deleteItem(id) {
 function displayEditForm(id) {
     const item = todos.find(item => item.id === id);
 
-    document.getElementById('edit-description').value = item.Description;
+    document.getElementById('edit-description').value = item.description;
     document.getElementById('edit-id').value = item.id;
     document.getElementById('edit-isComplete').checked = item.isComplete;
     document.getElementById('editForm').style.display = 'block';
@@ -82,7 +84,7 @@ function closeInput() {
 }
 
 function _displayCount(itemCount) {
-    const name = (itemCount === 1) ? 'to-do' : 'to-dos';
+    const name = (itemCount === 1) ? 'todo' : 'todos';
 
     document.getElementById('counter').innerText = `${itemCount} ${name}`;
 }
@@ -115,7 +117,7 @@ function _displayItems(data) {
         td1.appendChild(isCompleteCheckbox);
 
         let td2 = tr.insertCell(1);
-        let textNode = document.createTextNode(item.addDescriptionTextbox);
+        let textNode = document.createTextNode(item.description);
         td2.appendChild(textNode);
 
         let td3 = tr.insertCell(2);
